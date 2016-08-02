@@ -21,4 +21,8 @@ class User < ApplicationRecord
       end
     end
   end
+
+  def active?
+    false
+  end
 end
