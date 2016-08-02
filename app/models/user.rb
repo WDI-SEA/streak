@@ -23,6 +23,10 @@ class User < ApplicationRecord
   end
 
   def active?
-    false
+    active
+  end
+
+  def admin?
+    admin
   end
 end
