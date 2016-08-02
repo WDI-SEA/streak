@@ -1,9 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:github]
+  devise :database_authenticatable, :rememberable, :trackable,
+         :validatable, :omniauthable, :omniauth_providers => [:github]
 
   belongs_to :cohort
 
@@ -22,13 +21,5 @@ class User < ApplicationRecord
         user.email = data['email'] if user.email.blank?
       end
     end
-  end
-
-  def active?
-    active
-  end
-
-  def admin?
-    admin
   end
 end
