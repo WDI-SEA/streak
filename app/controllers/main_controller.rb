@@ -4,6 +4,6 @@ class MainController < ApplicationController
   end
 
   def leaderboard
-
+    @users = User.where(cohort: current_user.cohort).joins(:event_snapshots)
   end
 end
