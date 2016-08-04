@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'omniauth-github'
 gem 'cancancan'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # rails_admin
 gem 'remotipart', github: 'mshibuya/remotipart'

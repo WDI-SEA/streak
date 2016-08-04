@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
 
   root 'main#index'
+  get 'leaderboard', to: 'main#leaderboard'
+  resources :cohorts, only: [:index, :show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

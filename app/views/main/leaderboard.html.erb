@@ -1,0 +1,17 @@
+<h1>Main#leaderboard</h1>
+<p>Find me in app/views/main/leaderboard.html.erb</p>
+
+<h2>
+  Hello <%= current_user.name %>
+  <small><%= current_user.cohort.name %></small>
+</h2>
+
+<div>
+  <span>Your last push was</span>
+  <span>Total commits (90 days):</span>
+  <span>Total Pull Requests (90 days):</span>
+</div>
+
+<hr>
+
+<h3><%= current_user.cohort.name %> Leaderboard</h3>
