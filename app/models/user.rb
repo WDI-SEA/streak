@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :validatable, :omniauthable, :omniauth_providers => [:github]
 
   belongs_to :cohort
+  has_many :event_snapshots
+
+  alias_attribute :snapshots, :event_snapshots
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
