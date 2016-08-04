@@ -2,9 +2,10 @@ RailsAdmin.config do |config|
 
   ### Popular gems integration
 
-  ## == Devise ==
-  config.authenticate_with do
-    warden.authenticate! scope: :user
+  config.authorize_with do |controller|
+    unless current_user
+      redirect_to root_path, :notice => 'You need to sign in with Github'
+    end
   end
   config.current_user_method(&:current_user)
 
