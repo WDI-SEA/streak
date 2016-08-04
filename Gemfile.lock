@@ -247,7 +247,6 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   cancancan
-  coffee-rails (~> 4.2)
   devise
   jbuilder (~> 2.5)
   jquery-rails
