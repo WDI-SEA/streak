@@ -27,4 +27,8 @@ class User < ApplicationRecord
       end
     end
   end
+
+  def last_snapshot
+    snapshots.order(created_at: :desc).first
+  end
 end
