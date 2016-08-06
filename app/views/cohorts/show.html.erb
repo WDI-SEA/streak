@@ -1,2 +1,5 @@
-<h1>Cohorts#show</h1>
-<p>Find me in app/views/cohorts/show.html.erb</p>
+<div class="container">
+  <h1><%= @cohort.name %></h1>
+
+  <%= render 'leaderboard', cohort: @cohort %>
+</div>

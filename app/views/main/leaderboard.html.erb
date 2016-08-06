@@ -29,30 +29,7 @@
 <hr>
 
 <div class="container">
-  <h3><%= current_user.cohort.name %> Leaderboard</h3>
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th>Name</th>
-        <th>Last Push</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      <% @users.each_with_index do |user, idx| %>
-      <tr>
-        <th><%= idx + 1 %></th>
-        <th><%= image_tag user.image, alt: "#{user.name}'s image", class: 'img-responsive leaderboard-img' %></th>
-        <th><%= user.name %></th>
-        <th><%= time_ago_in_words(user.snapshots.first.last_push) %> ago</th>
-      </tr>
-      <% end %>
-
-    </tbody>
-  </table>
+  <%= render 'cohorts/leaderboard', cohort: current_user.cohort %>
 </div>
 
 <% end %>
