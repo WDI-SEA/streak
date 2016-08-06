@@ -15,6 +15,8 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name
       user.image = auth.info.image
+      user.username = auth.info.nickname
+      user.subscribed = true
     end
   end
 

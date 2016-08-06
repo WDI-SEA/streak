@@ -82,6 +82,9 @@ GEM
     haml (4.0.7)
       tilt
     hashie (3.4.4)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -92,6 +95,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    json (1.8.3)
     jwt (1.5.4)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
@@ -248,6 +252,7 @@ DEPENDENCIES
   byebug
   cancancan
   devise
+  httparty
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

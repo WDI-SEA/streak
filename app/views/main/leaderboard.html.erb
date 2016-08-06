@@ -1,7 +1,7 @@
 <div class="container">
   <h1>
     Hello <%= current_user.name %>
-    <small><%= current_user.cohort.name %></small>
+    <small><%= current_user.cohort.name if current_user.cohort %></small>
   </h1>
 </div>
 
@@ -16,6 +16,8 @@
     <p>Total Pull Requests (90 days):</p>
   </div>
 </div>
+
+<% if current_user.cohort %>
 
 <hr>
 
@@ -45,3 +47,5 @@
     </tbody>
   </table>
 </div>
+
+<% end %>
