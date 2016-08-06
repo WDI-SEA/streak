@@ -45,7 +45,7 @@
       <% @users.each_with_index do |user, idx| %>
       <tr>
         <th><%= idx + 1 %></th>
-        <th><%= image_tag user.image, alt: "#{user.name}'s image", class: 'img-responsive' %></th>
+        <th><%= image_tag user.image, alt: "#{user.name}'s image", class: 'img-responsive leaderboard-img' %></th>
         <th><%= user.name %></th>
         <th><%= time_ago_in_words(user.snapshots.first.last_push) %> ago</th>
       </tr>
