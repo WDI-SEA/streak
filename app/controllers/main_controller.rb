@@ -7,7 +7,9 @@ class MainController < ApplicationController
 
   def leaderboard
     if current_user
-      @users = User.where(cohort: current_user.cohort).joins(:event_snapshots)
+      @users = User.where(cohort: current_user.cohort)
+                   .includes(:event_snapshots)
+                   .order('event_snapshots.last_push DESC')
     else
       @users = []
     end

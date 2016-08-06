@@ -5,17 +5,24 @@
   </h1>
 </div>
 
+<% if current_user.last_snapshot %>
+
 <div class="row">
   <div class="col-md-4 text-center">
     <p>Your last push was</p>
+    <h2><%= time_ago_in_words(current_user.last_snapshot.last_push) %> ago</h2>
   </div>
   <div class="col-md-4 text-center">
-    <p>Total commits (90 days):</p>
+    <p>Recent commits:</p>
+    <h2><%= current_user.last_snapshot.commits %></h2>
   </div>
   <div class="col-md-4 text-center">
-    <p>Total Pull Requests (90 days):</p>
+    <p>Recent Pull Requests</p>
+    <h2><%= current_user.last_snapshot.pull_requests %></h2>
   </div>
 </div>
+
+<% end %>
 
 <% if current_user.cohort %>
 
