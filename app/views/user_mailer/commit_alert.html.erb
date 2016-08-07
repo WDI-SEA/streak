@@ -1,0 +1,23 @@
+<h1>How's it going <%= @user.name %>?</h1>
+
+<p>
+  Here at General Assembly, we love you. Which is why we need to give some tough love...
+</p>
+<p>
+  <em>You haven't committed to Github recently.</em>
+</p>
+<p>
+  It's been <strong><%= time_ago_in_words(@user.last_snapshot.last_push) %></strong> since you've pushed. But don't worry, you can get back on track! We believe in you :)
+</p>
+
+<h2>What you should do now</h2>
+
+<ol>
+  <li>Pick a project to work on. It can be an existing project that you want to add more features to. Or it can be an entirely new one. (Hint: keeping your project small will help motivate you to complete it.)</li>
+  <li>Plan out and write some clean code.</li>
+  <li>Add, commit, and push to Github</li>
+</ol>
+
+<h2>See how your fellow developers are doing</h2>
+
+<%= render('cohorts/leaderboard', cohort: @user.cohort) if @user.cohort %>

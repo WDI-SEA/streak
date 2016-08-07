@@ -1,0 +1,15 @@
+How's it going <%= @user.name %>?
+
+Here at General Assembly, we love you. Which is why we need to give some tough love...
+
+-- You haven't committed to Github recently. --
+
+It's been **<%= time_ago_in_words(@user.last_snapshot.last_push) %>** since you've pushed. But don't worry, you can get back on track! We believe in you :)
+
+What you should do now
+
+- Pick a project to work on. It can be an existing project that you want to add more features to. Or it can be an entirely new one. (Hint: keeping your project small will help motivate you to complete it.)
+- Plan out and write some clean code.
+- Add, commit, and push to Github
+
+See how your fellow developers are doing by logging into your account at <%= url_for root_url %>
