@@ -9,6 +9,15 @@ class User < ApplicationRecord
 
   alias_attribute :snapshots, :event_snapshots
 
+  # note that a user who is subscribed will receive emails
+  # note that a user who is active will be able to view the leaderboard and other app data
+  scope :subscribed, -> { where(active: true, subscribed: true) }
+
+  # set a default last notified date when an instance is created
+  before_create do
+    self.last_notified = DateTime.now if last_notified.blank?
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
