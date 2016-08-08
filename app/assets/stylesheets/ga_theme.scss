@@ -40,3 +40,21 @@ h1, h2, h3, h4, h5, h6,
 .btn-primary {
   @include button-variant($ga-white, $ga-red, transparent);
 }
+
+// Landing page
+.landing-page {
+  font-size: 1em;
+
+  h1 {
+    font-size: 6em;
+  }
+
+  h2 {
+    font-size: 4em;
+  }
+
+  .btn-action {
+    font-size: 1.2em;
+    padding: 1em 2em;
+  }
+}
