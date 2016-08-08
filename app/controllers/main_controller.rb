@@ -6,5 +6,6 @@ class MainController < ApplicationController
   end
 
   def leaderboard
+    @cohorts = Cohort.order(:name) if current_user.admin?
   end
 end

@@ -29,6 +29,20 @@
 
   <hr>
 
+  <% if current_user.admin? %>
+
+  <h2>Cohorts</h2>
+  <% @cohorts.each do |cohort| %>
+  <div class="well">
+    <h2><%= link_to cohort.name, cohort %></h2>
+  </div>
+  <% end %>
+
+  <hr>
+
+  <% end %>
+
+
   <% if current_user.cohort && current_user.active? %>
 
   <%= render 'cohorts/leaderboard', cohort: current_user.cohort %>
