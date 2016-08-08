@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   # Set a default last notified date when an instance is created
   before_create do
-    self.last_notified = DateTime.now if last_notified.blank?
+    self.last_notified = DateTime.now if self.last_notified.blank?
   end
 
   # Instance methods
