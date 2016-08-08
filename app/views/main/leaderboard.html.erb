@@ -23,25 +23,29 @@
 
   <% else %>
 
-  <p>Github snapshots are taken every day. Please check back later.</p>
+  <p>Github snapshots are taken every day. Please check back later to see yours.</p>
 
   <% end %>
 
   <hr>
 
-  <% if current_user.cohort %>
+  <% if current_user.cohort && current_user.active? %>
 
   <%= render 'cohorts/leaderboard', cohort: current_user.cohort %>
 
+  <% elsif !current_user.active? %>
+
+  <p>
+    Your account is currently marked inactive by GA staff.
+    Please contact
+    <%= mail_to 'brian.hague@ga.co', 'the site administrator',
+      subject: 'I am currently marked inactive',
+      body: "User's name: #{current_user.name}\r\nGithub handle: #{current_user.username}" %>
+  </p>
+
   <% else %>
 
-  <p>Your account is not assigned to a cohort. Please check back later.</p>
-
-  <% end %>
-
-  <% if !current_user.active? %>
-
-  <p>Your account is currently inactive. Please check back later.</p>
+  <p>Your account hasn't been assigned to a cohort yet. Please wait for GA staff to add you.</p>
 
   <% end %>
 </div>
