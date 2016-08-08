@@ -16,7 +16,13 @@
       <th><%= idx + 1 %></th>
       <th><%= image_tag user.image, alt: "#{user.name}'s image", class: 'img-responsive leaderboard-img' %></th>
       <th><%= user.name %></th>
-      <th><%= time_ago_in_words(user.snapshots.first.last_push) %> ago</th>
+      <th>
+      <% if user.snapshots.empty? %>
+        N/A
+      <% else %>
+        <%= time_ago_in_words(user.snapshots.first.last_push) %> ago
+      <% end %>
+      </th>
     </tr>
     <% end %>
 
