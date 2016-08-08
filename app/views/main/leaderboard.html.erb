@@ -3,33 +3,45 @@
     Hello <%= current_user.name %>
     <small><%= current_user.cohort.name if current_user.cohort %></small>
   </h1>
-</div>
 
-<% if current_user.last_snapshot %>
+  <% if current_user.last_snapshot %>
 
-<div class="row">
-  <div class="col-md-4 text-center">
-    <p>Your last push was</p>
-    <h2><%= time_ago_in_words(current_user.last_snapshot.last_push) %> ago</h2>
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <p>Your last push was</p>
+      <h2><%= time_ago_in_words(current_user.last_snapshot.last_push) %> ago</h2>
+    </div>
+    <div class="col-md-4 text-center">
+      <p>Recent commits:</p>
+      <h2><%= current_user.last_snapshot.commits %></h2>
+    </div>
+    <div class="col-md-4 text-center">
+      <p>Recent Pull Requests</p>
+      <h2><%= current_user.last_snapshot.pull_requests %></h2>
+    </div>
   </div>
-  <div class="col-md-4 text-center">
-    <p>Recent commits:</p>
-    <h2><%= current_user.last_snapshot.commits %></h2>
-  </div>
-  <div class="col-md-4 text-center">
-    <p>Recent Pull Requests</p>
-    <h2><%= current_user.last_snapshot.pull_requests %></h2>
-  </div>
-</div>
 
-<% end %>
+  <% else %>
 
-<% if current_user.cohort %>
+  <p>Github snapshots are taken every day. Please check back later.</p>
 
-<hr>
+  <% end %>
 
-<div class="container">
+  <hr>
+
+  <% if current_user.cohort %>
+
   <%= render 'cohorts/leaderboard', cohort: current_user.cohort %>
-</div>
 
-<% end %>
+  <% else %>
+
+  <p>Your account is not assigned to a cohort. Please check back later.</p>
+
+  <% end %>
+
+  <% if !current_user.active? %>
+
+  <p>Your account is currently inactive. Please check back later.</p>
+
+  <% end %>
+</div>

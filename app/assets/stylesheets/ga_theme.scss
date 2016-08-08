@@ -1,0 +1,42 @@
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  text-transform: uppercase;
+}
+
+
+// Navbar styling
+.navbar-default {
+  background-color: $ga-black;
+  color: $ga-white;
+
+  .navbar-brand {
+    font-family: $font-family-headers;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: $ga-white;
+
+    &:hover {
+      color: $ga-red;
+    }
+  }
+
+  .navbar-nav > li > a {
+    color: $ga-white;
+
+    &:hover {
+      background-color: $ga-white;
+      color: $ga-red;
+    }
+  }
+}
+
+// Button styling
+.btn {
+  font-family: $font-family-sans-serif;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 0 #a20101;
+}
+
+.btn-primary {
+  @include button-variant($ga-white, $ga-red, transparent);
+}
