@@ -9,7 +9,11 @@
   <div class="row">
     <div class="col-md-4 text-center">
       <p>Your last push was</p>
+      <% if current_user.last_snapshot.last_push %>
       <h2><%= time_ago_in_words(current_user.last_snapshot.last_push) %> ago</h2>
+      <% else %>
+      <h2>N/A</h2>
+      <% end %>
     </div>
     <div class="col-md-4 text-center">
       <p>Recent commits:</p>
