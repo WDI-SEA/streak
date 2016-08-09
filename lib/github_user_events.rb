@@ -36,7 +36,7 @@ class GithubUserEvents
       next_date = DateTime.parse(b['created_at'])
       last_date <=> next_date
     end
-    DateTime.parse(last_push_event['created_at'])
+    DateTime.parse(last_push_event['created_at']) if last_push_event else nil
   end
 end
 
