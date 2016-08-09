@@ -33,6 +33,7 @@ gem 'omniauth-github'
 gem 'cancancan'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'httparty'
+gem 'font-awesome-rails'
 
 # rails_admin
 gem 'remotipart', github: 'mshibuya/remotipart'

@@ -6,16 +6,18 @@
       <th></th>
       <th></th>
       <th>Name</th>
+      <th>Github</th>
       <th>Last Push</th>
     </tr>
   </thead>
   <tbody>
 
     <% cohort.users_by_last_push.each_with_index do |user, idx| %>
-    <tr>
+    <tr class="text-center">
       <th><%= idx + 1 %></th>
       <th><%= image_tag user.image, alt: "#{user.name}'s image", class: 'img-responsive leaderboard-img' %></th>
       <th><%= user.name %></th>
+      <th><%= link_to fa_icon('github 3x'), "https://github.com/#{user.username}", target: "_blank" %></th>
       <th>
       <% if user.snapshots.empty? || !user.snapshots.first.last_push %>
         N/A
