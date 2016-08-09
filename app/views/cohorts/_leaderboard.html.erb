@@ -17,7 +17,7 @@
       <th><%= image_tag user.image, alt: "#{user.name}'s image", class: 'img-responsive leaderboard-img' %></th>
       <th><%= user.name %></th>
       <th>
-      <% if user.snapshots.empty? %>
+      <% if user.snapshots.empty? || !user.snapshots.first.last_push %>
         N/A
       <% else %>
         <%= time_ago_in_words(user.snapshots.first.last_push) %> ago
