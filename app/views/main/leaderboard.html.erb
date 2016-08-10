@@ -2,11 +2,18 @@
   <h1>
     Hello <%= current_user.name %>
     <small><%= current_user.cohort.name if current_user.cohort %></small>
+
+    <% if current_user.snapshot %>
+    <small class="pull-right">As of <%= time_ago_in_words(current_user.snapshot.updated_at) %> ago</small>
+    <% end %>
   </h1>
 
   <% if current_user.snapshot %>
 
+  <hr>
+
   <div class="row">
+
     <div class="col-md-4 text-center">
       <p>Your last push was</p>
       <% if current_user.snapshot.last_push %>
