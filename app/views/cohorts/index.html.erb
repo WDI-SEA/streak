@@ -1,8 +1,10 @@
 <div class="container">
   <h1>Cohorts</h1>
+  <%= link_to 'Create a Cohort', new_cohort_path, class: 'btn btn-primary' %>
   <% @cohorts.each do |cohort| %>
   <div class="well">
     <h2><%= link_to cohort.name, cohort %></h2>
+    <%= link_to 'Edit', edit_cohort_path(cohort), class: 'btn btn-info' %>
   </div>
   <% end %>
 </div>

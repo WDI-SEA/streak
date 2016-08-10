@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'users#edit'
 
   resources :users, only: [:edit, :update]
-  resources :cohorts, only: [:index, :show, :new, :edit]
+  resources :cohorts, except: [:destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
