@@ -11,17 +11,11 @@ namespace :github do
 
       events = GithubUserEvents.new(user.username)
 
-      pull_requests = events.opened_pull_requests
-      commits = events.commits
-      last_push = events.last_push_date
-
-      puts "#{user.username} has #{commits} commits and #{pull_requests} PRs."
-      puts "Last push: #{last_push}"
-
-      user.snapshots.create(
-        pull_requests: pull_requests,
-        commits: commits,
-        last_push: last_push
+      user.snapshot.delete if user.snapshot
+      user.create_event_snapshot(
+        pull_requests: events.opened_pull_requests,
+        commits: events.commits,
+        last_push: events.last_push_date
       )
     end
 
@@ -35,11 +29,10 @@ namespace :github do
 
     day_threshold = ENV['PUSH_DAYS_THRESHOLD'].to_i.days.ago
     User.subscribed.each do |user|
-      last_push_date = user.last_snapshot.last_push
       recently_notified = user.last_notified > 3.days.ago if user.last_notified
       puts "#{recently_notified}"
 
-      email_should_be_sent = last_push_date < day_threshold && !recently_notified
+      email_should_be_sent = user.snapshot.last_push < day_threshold && !recently_notified
 
       if email_should_be_sent
         UserMailer.commit_alert(user).deliver_now

@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   # Associations and aliases
   belongs_to :cohort
-  has_many :event_snapshots
-  alias_attribute :snapshots, :event_snapshots
+  has_one :event_snapshot
+  alias_attribute :snapshot, :event_snapshot
 
   # Scopes
   # note that a user who is subscribed will receive emails
@@ -16,11 +16,6 @@ class User < ApplicationRecord
   # Set a default last notified date when an instance is created
   before_create do
     self.last_notified = DateTime.now if self.last_notified.blank?
-  end
-
-  # Instance methods
-  def last_snapshot
-    snapshots.order(created_at: :desc).first
   end
 
   # Omniauth methods

@@ -19,10 +19,10 @@
       <th><%= user.name %></th>
       <th><%= link_to fa_icon('github 3x'), "https://github.com/#{user.username}", target: "_blank" %></th>
       <th>
-      <% if user.snapshots.empty? || !user.snapshots.first.last_push %>
+      <% if !user.snapshot || !user.snapshot.last_push %>
         N/A
       <% else %>
-        <%= time_ago_in_words(user.snapshots.first.last_push) %> ago
+        <%= time_ago_in_words(user.snapshot.last_push) %> ago
       <% end %>
       </th>
     </tr>
