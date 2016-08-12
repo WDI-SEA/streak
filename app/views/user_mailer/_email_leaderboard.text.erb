@@ -1,0 +1,6 @@
+<%= cohort.name %> Leaderboard
+==============================
+
+<% cohort.users_by_last_push.each_with_index do |user, idx| %>
+Rank <%= idx + 1 %>: <%= user.name %>
+<% end %>

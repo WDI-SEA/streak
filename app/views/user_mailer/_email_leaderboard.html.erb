@@ -1,0 +1,32 @@
+<h3><%= cohort.name %> Leaderboard</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Name</th>
+      <th>Github</th>
+      <th>Last Push</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% cohort.users_by_last_push.each_with_index do |user, idx| %>
+    <tr class="text-center">
+      <th><%= idx + 1 %></th>
+      <th><%= image_tag user.image, alt: "#{user.name}'s image", class: 'img-responsive leaderboard-img' %></th>
+      <th><%= user.name %></th>
+      <th><%= link_to "Github", "https://github.com/#{user.username}", target: "_blank" %></th>
+      <th>
+      <% if !user.snapshot || !user.snapshot.last_push %>
+        N/A
+      <% else %>
+        <%= time_ago_in_words(user.snapshot.last_push) %> ago
+      <% end %>
+      </th>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
