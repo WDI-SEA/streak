@@ -4,8 +4,10 @@ Here at General Assembly, we love you. Which is why we need to give some tough l
 
 -- You haven't committed to Github recently. --
 
-<% if @user.snapshot %>
+<% if @user.snapshot && @user.snapshot.last_push %>
+
 It's been **<%= time_ago_in_words(@user.snapshot.last_push) %>** since you've pushed. But don't worry, you can get back on track! We believe in you :)
+
 <% end %>
 
 What you should do now
@@ -14,4 +16,6 @@ What you should do now
 - Plan out and write some clean code.
 - Add, commit, and push to Github
 
-See how your fellow developers are doing by logging into your account at <%= url_for root_url %>
+--------------------------------------------
+
+<%= render('email_leaderboard', cohort: @user.cohort) if @user.cohort %>

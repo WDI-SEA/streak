@@ -6,7 +6,8 @@
 <p>
   <em>You haven't committed to Github recently.</em>
 </p>
-<% if @user.snapshot %>
+
+<% if @user.snapshot && @user.snapshot.last_push %>
 <p>
   It's been <strong><%= time_ago_in_words(@user.snapshot.last_push) %></strong> since you've pushed. But don't worry, you can get back on track! We believe in you :)
 </p>
