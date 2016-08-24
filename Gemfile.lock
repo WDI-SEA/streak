@@ -149,6 +149,7 @@ GEM
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
       rack (>= 1.1)
+    rack-ssl-enforcer (0.2.9)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0)
@@ -266,6 +267,7 @@ DEPENDENCIES
   omniauth-github
   pg (~> 0.18)
   puma (~> 3.0)
+  rack-ssl-enforcer
   rails (~> 5.0.0)
   rails_admin (>= 1.0.0.rc)
   remotipart!
