@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :cohorts, except: [:destroy]
 
+  get '/.well-known/acme-challenge/:id', to: 'main#letsencrypt'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
