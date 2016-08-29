@@ -1,5 +1,11 @@
 <h3><%= cohort.name %> Leaderboard</h3>
 
+<style type="text/css">
+  .leaderboard-img {
+    width: 100px;
+  }
+</style>
+
 <table>
   <thead>
     <tr>
@@ -17,7 +23,7 @@
       <th><%= idx + 1 %></th>
       <th><%= image_tag user.image, alt: "#{user.name}'s image", class: 'img-responsive leaderboard-img' %></th>
       <th><%= user.name %></th>
-      <th><%= link_to "Github", "https://github.com/#{user.username}", target: "_blank" %></th>
+      <th><%= link_to user.username, "https://github.com/#{user.username}", target: "_blank" %></th>
       <th>
       <% if !user.snapshot || !user.snapshot.last_push %>
         N/A
